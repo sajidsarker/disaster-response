@@ -18,3 +18,25 @@
     `python run.py`
 
 3. Go to http://0.0.0.0:3001/
+
+## 4. Files
+
+The directory structure for this repository is detailed below:
+
+```bash
+/
+├── Documentation/
+│   └── Documentation.html
+├── src/
+│   └── neolinearalgebra/
+│       ├── Matrix.py
+│       └── __init__.py
+├── tests/
+│   └── test.py
+├── .gitignore
+├── LICENSE.txt
+├── README.md
+├── pyproject.toml
+├── setup.cfg
+└── setup.py
+```
