@@ -6,7 +6,34 @@
 
 ## Table of Contents
 
-## Instructions:
+## 1. Files
+
+The directory structure for this repository is detailed below:
+
+```bash
+/
+├── Documentation/
+│   └── Documentation.html
+├── app/
+│   ├── templates/
+│   │   ├── go.html
+│   │   └── master.html
+│   └── run.py
+├── data/
+│   ├── process_data.py
+│   ├── categories.csv
+│   ├── process_data.py
+│   └── DisasterResponse.db
+├── model/
+│   ├── train_classifier.py
+│   └── classifier.pkl
+├── .gitignore
+├── requirements.txt
+├── LICENSE
+└── README.md
+```
+
+## 2. Instructions:
 1. Ensure that you have initialised your local Python environment and installed all relevant Python packages required by this project.
 
     ```bash
@@ -40,30 +67,3 @@
     ```
 
 4. Navigate to `http://0.0.0.0:3001/` in your web browser.
-
-## 4. Files
-
-The directory structure for this repository is detailed below:
-
-```bash
-/
-├── Documentation/
-│   └── Documentation.html
-├── app/
-│   ├── templates/
-│   │   ├── go.html
-│   │   └── master.html
-│   └── run.py
-├── data/
-│   ├── process_data.py
-│   ├── categories.csv
-│   ├── process_data.py
-│   └── DisasterResponse.db
-├── model/
-│   ├── train_classifier.py
-│   └── classifier.pkl
-├── .gitignore
-├── requirements.txt
-├── LICENSE
-└── README.md
-```
