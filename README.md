@@ -47,7 +47,7 @@ The directory structure for this repository is detailed below:
 
     ```bash
     git clone https://github.com/sajidsarker/disaster-response.git
-    cd disaster-response.git
+    cd disaster-response
     pip install virtualenv
     virtualenv env
     source env/bin/activate
