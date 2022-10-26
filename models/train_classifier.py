@@ -23,7 +23,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.multioutput import MultiOutputClassifier
 
@@ -31,9 +31,11 @@ from sklearn.multioutput import MultiOutputClassifier
 def load_data(database_filepath):
     '''
     Args:
-        ... (): ...
+        database_filepath (str): The file path for the database
     Return:
-        ... (): ...
+        X (DataFrame): Dataset containing messages (features)
+        Y (DataFrame): Dataset containing target categories
+        category_names (list of str): List of target category names
     '''
     engine = create_engine('sqlite:///{}'.format(database_filepath))
 
@@ -44,16 +46,18 @@ def load_data(database_filepath):
     Y = df.columns
     Y = Y.drop(['id', 'message', 'original', 'genre'])
     Y = df[Y].copy()
+    
+    category_names = Y.columns
 
-    return X, Y, Y.columns
+    return X, Y, category_names
 
 
-def tokenize(text):
+def tokenise(text):
     '''
     Args:
-        text (str): ...
+        text (str): The message to be tokenised
     Return:
-        ... (): ...
+        clean_tokens (list of str): The message after cleaning and tokenisation 
     '''
     # Normalise text
     text = text.lower()
@@ -91,30 +95,30 @@ def tokenize(text):
 def build_model():
     '''
     Args:
-        ... (): ...
+        None
     Return:
-        ... (): ...
+        cross_validated_model (list of str): Cross validated classification model
     '''
     # Create model pipeline
     pipeline = Pipeline([
 
         ('nlp_pipeline', Pipeline([
-            ('vectorise', CountVectorizer(tokenizer=tokenize)),
+            ('vectorise', CountVectorizer(tokenizer=tokenise)),
             ('tfidf', TfidfTransformer())
         ])),
 
-        ('classifier', MultiOutputClassifier(RandomForestClassifier()))
+        ('classifier', MultiOutputClassifier(GradientBoostingClassifier()))
 
     ])
 
     # Define grid search parameters
     parameters = {
-        '': ,
-        '': (
-            {'': },
-            {'': },
-            {'': }
-        )
+        'tfidf__use_idf': (True, False), 
+        'classifier__learning_rate': [0.1, 0.05, 0.01],
+        'classifier__subsample': [0.9, 0.5, 0.2],
+        'classifier__n_estimators': [100, 500, 1000],
+        'classifier__max_depth': [4, 6, 8],
+        'classifier__criterion': ['friedman_mse', 'squared_error', 'mse']
     }
 
     cross_validated_model = GridSearchCV(pipeline, param_grid=parameters)
@@ -125,11 +129,20 @@ def build_model():
 def evaluate_model(model, X_test, Y_test, category_names):
     '''
     Args:
-        ... (): ...
+        model: The classification model
+        X_test (DataFrame): Testing dataset containing messages (features)
+        Y_test (DataFrame): Testing dataset containing target categories
+        category_names (list of str): List of target category names
     Return:
-        ... (): ...
+        None
     '''
     Y_pred = model.predict(X_test)
+    
+    for i in enumerate(category_names):
+        print('Target Variable {}: {}'.format(i[0], i[1]))
+        print('Class Labels:', np.unique(Y_pred))
+        print(classification_report(Y_test.iloc[:, i[0]], Y_pred[:, i[0]]))
+
     accuracy = (Y_pred == Y_test.values).mean()
     print('Model Accuracy: {:.3f}%'.format(accuracy * 100))
 
@@ -139,7 +152,7 @@ def evaluate_model(model, X_test, Y_test, category_names):
 def save_model(model, model_filepath):
     '''
     Args:
-        model (): The classification model
+        model: The classification model
         model_filepath (str): The file path for classification model pickle file
     Return:
         None
