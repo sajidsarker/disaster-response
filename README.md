@@ -68,7 +68,7 @@ The directory structure for this repository is detailed below:
         python models/train_classifier.py data/DisasterResponse.db models/classifier.pkl
         ```
 
-3. Run the following command in the `/app` directory to run your web app.
+3. Run the following command in the `./app` directory to run your web app.
 
     ```bash
     cd app
