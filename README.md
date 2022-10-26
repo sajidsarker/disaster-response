@@ -32,13 +32,14 @@
         python models/train_classifier.py data/DisasterResponse.db models/classifier.pkl
         ```
 
-3. Run the following command in the **/app** directory to run your web app.
+3. Run the following command in the `/app` directory to run your web app.
 
     ```bash
+    cd app
     python run.py
     ```
 
-4. Navigate to http://0.0.0.0:3001/ in your web browser
+4. Navigate to `http://0.0.0.0:3001/` in your web browser.
 
 ## 4. Files
 
