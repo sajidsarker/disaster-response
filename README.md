@@ -27,16 +27,21 @@ The directory structure for this repository is detailed below:
 /
 ├── Documentation/
 │   └── Documentation.html
-├── src/
-│   └── neolinearalgebra/
-│       ├── Matrix.py
-│       └── __init__.py
-├── tests/
-│   └── test.py
+├── app/
+│   ├── templates/
+│   │   ├── go.html
+│   │   └── master.html
+│   └── run.py
+├── data/
+│   ├── process_data.py
+│   ├── categories.csv
+│   ├── process_data.py
+│   └── DisasterResponse.db
+├── model/
+│   ├── train_classifier.py
+│   └── classifier.pkl
 ├── .gitignore
-├── LICENSE.txt
-├── README.md
-├── pyproject.toml
-├── setup.cfg
-└── setup.py
+├── requirements.txt
+├── LICENSE
+└── README.md
 ```
