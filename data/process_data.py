@@ -53,7 +53,7 @@ def save_data(df, database_filename):
     Return:
         None
     '''
-    engine = create_engine('sqlite:///{}.db'.format(database_filename))
+    engine = create_engine('sqlite:///{}'.format(database_filename))
     df.to_sql('Messages', engine, index=False)
     
     return None
