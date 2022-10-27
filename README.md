@@ -71,8 +71,7 @@ The directory structure for this repository is detailed below:
 3. Run the following command in the `./app` directory to run your web app.
 
     ```bash
-    cd app
-    python run.py
+    python app/run.py
     ```
 
 4. Navigate to `http://0.0.0.0:3001/` in your web browser.

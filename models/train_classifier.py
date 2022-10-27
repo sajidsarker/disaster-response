@@ -24,6 +24,7 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.multioutput import MultiOutputClassifier
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
@@ -109,10 +110,13 @@ def build_model():
     # Define grid search parameters
     parameters = {
         'nlp_pipeline__tfidf__use_idf': (True, False),
-        'classifier__estimator__learning_rate': [0.1, 0.05, 0.01],
-        'classifier__estimator__subsample': [0.9, 0.5, 0.2],
-        'classifier__estimator__n_estimators': [100, 500, 1000],
-        'classifier__estimator__max_depth': [4, 6, 8]
+        'classifier__estimator__n_estimators': [50, 75, 100],
+        'classifier__estimator__criterion': ['gini', 'entropy', 'log_loss'],
+        #'classifier__estimator__max_depth': [4, 6, 8, None],
+        #'classifier__estimator__learning_rate': [0.1, 0.05, 0.01],
+        #'classifier__estimator__subsample': [0.9, 0.5, 0.2],
+        #'classifier__estimator__n_estimators': [100, 500, 1000],
+        #'classifier__estimator__max_depth': [4, 6, 8]
         #'classifier__estimator__criterion': ['friedman_mse', 'squared_error', 'mse']
     }
 
@@ -169,13 +173,13 @@ def main():
         print('Loading data...\n    DATABASE: {}'.format(database_filepath))
         X, Y, category_names = load_data(database_filepath)
         X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2)
-        
+
         print('Building model...')
         model = build_model()
-        
+
         print('Training model...')
         model.fit(X_train, Y_train)
-        
+
         print('Evaluating model...')
         evaluate_model(model, X_test, Y_test, category_names)
 
