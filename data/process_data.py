@@ -28,14 +28,24 @@ def clean_data(df):
     Return:
         df (DataFrame): A merged and cleaned dataframe of messages and categories
     '''
-    # Convert categories into categorical variables
+    # Split categories into separate category columns
     categories = df['categories'].copy().str.split(pat=';', expand=True)
+    
+    # Assign category names to column headers
     categories.columns = [x[0:-2] for x in categories.iloc[0, :]]
+    
+    # Convert category values to integer type
     for column in categories:
         categories[column] = categories[column].str[-1]
         categories[column] = categories[column].astype(int)
+
+    # Copy row identifiers
     categories['id'] = df['id'].copy()
+    
+    # Drop pre-cleaned categories column 
     df.drop('categories', inplace=True, axis=1)
+    
+    # Merge new categorical dummy variables to create full dataset
     df = df.merge(categories, on='id')
 
     # Remove duplicates
@@ -70,7 +80,7 @@ def main():
 
         print('Cleaning data...')
         df = clean_data(df)
-        
+
         print('Saving data...\n    DATABASE: {}'.format(database_filepath))
         save_data(df, database_filepath)
         

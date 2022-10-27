@@ -39,15 +39,9 @@ def load_data(database_filepath):
         category_names (list of str): List of target category names
     '''
     engine = create_engine('sqlite:///{}'.format(database_filepath))
-
     df = pd.read_sql_table('Messages', engine)
-
     X = df['message'].copy()
-
-    Y = df.columns
-    Y = Y.drop(['id', 'message', 'original', 'genre'])
-    Y = df[Y].copy()
-    
+    Y = df.iloc[:, 4:].copy()
     category_names = Y.columns
 
     return X, Y, category_names
@@ -114,14 +108,16 @@ def build_model():
 
     # Define grid search parameters
     parameters = {
-        'nlp_pipeline__tfidf__use_idf': (True, False), 
+        'nlp_pipeline__tfidf__use_idf': (True, False),
+        #'classifier__estimator__loss': ['log_loss'],
         'classifier__estimator__learning_rate': [0.1, 0.05, 0.01],
         'classifier__estimator__subsample': [0.9, 0.5, 0.2],
         'classifier__estimator__n_estimators': [100, 500, 1000],
-        'classifier__estimator__max_depth': [4, 6, 8],
+        #'classifier__estimator__max_depth': [4, 6, 8],
         'classifier__estimator__criterion': ['friedman_mse', 'squared_error', 'mse']
     }
 
+    # Assign pipeline and parameters to grid search model for cross validation
     cross_validated_model = GridSearchCV(pipeline, param_grid=parameters)
 
     return cross_validated_model
@@ -137,13 +133,16 @@ def evaluate_model(model, X_test, Y_test, category_names):
     Return:
         None
     '''
+    # Generate category predictions
     Y_pred = model.predict(X_test)
-    
+
+    # Display classification report by feature
     for i in enumerate(category_names):
         print('Target Variable {}: {}'.format(i[0], i[1]))
-        print('Class Labels:', np.unique(Y_pred))
+        print('Class Labels:', np.unique(Y_pred[:, i[0]]))
         print(classification_report(Y_test.iloc[:, i[0]], Y_pred[:, i[0]]))
 
+    # Calculate model accuracy
     accuracy = (Y_pred == Y_test.values).mean()
     print('Model Accuracy: {:.3f}%'.format(accuracy * 100))
 
