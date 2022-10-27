@@ -114,12 +114,12 @@ def build_model():
 
     # Define grid search parameters
     parameters = {
-        'tfidf__use_idf': (True, False), 
-        'classifier__learning_rate': [0.1, 0.05, 0.01],
-        'classifier__subsample': [0.9, 0.5, 0.2],
-        'classifier__n_estimators': [100, 500, 1000],
-        'classifier__max_depth': [4, 6, 8],
-        'classifier__criterion': ['friedman_mse', 'squared_error', 'mse']
+        'nlp_pipeline__tfidf__use_idf': (True, False), 
+        'classifier__estimator__learning_rate': [0.1, 0.05, 0.01],
+        'classifier__estimator__subsample': [0.9, 0.5, 0.2],
+        'classifier__estimator__n_estimators': [100, 500, 1000],
+        'classifier__estimator__max_depth': [4, 6, 8],
+        'classifier__estimator__criterion': ['friedman_mse', 'squared_error', 'mse']
     }
 
     cross_validated_model = GridSearchCV(pipeline, param_grid=parameters)
