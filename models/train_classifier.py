@@ -48,7 +48,7 @@ def load_data(database_filepath):
     return X, Y, category_names
 
 
-def tokenise(text):
+def tokenize(text):
     '''
     Args:
         text (str): The message to be tokenised
@@ -99,19 +99,19 @@ def build_model():
     pipeline = Pipeline([
 
         ('nlp_pipeline', Pipeline([
-            ('vectorise', CountVectorizer(tokenizer=tokenise)),
+            ('vectorise', CountVectorizer(tokenizer=tokenize)),
             ('tfidf', TfidfTransformer())
         ])),
 
-        ('classifier', MultiOutputClassifier(GradientBoostingClassifier()))
+        ('classifier', MultiOutputClassifier(RandomForestClassifier()))
 
     ])
 
     # Define grid search parameters
     parameters = {
-        'nlp_pipeline__tfidf__use_idf': (True, False),
-        'classifier__estimator__n_estimators': [50, 75, 100],
-        'classifier__estimator__criterion': ['gini', 'entropy', 'log_loss'],
+        #'nlp_pipeline__tfidf__use_idf': (True, False)
+        #'classifier__estimator__n_estimators': [50, 75, 100],
+        #'classifier__estimator__criterion': ['gini', 'entropy', 'log_loss'],
         #'classifier__estimator__max_depth': [4, 6, 8, None],
         #'classifier__estimator__learning_rate': [0.1, 0.05, 0.01],
         #'classifier__estimator__subsample': [0.9, 0.5, 0.2],
