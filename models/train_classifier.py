@@ -24,6 +24,7 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.multioutput import MultiOutputClassifier
+from sklearn.ensemble import AdaBoostClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.metrics import classification_report
@@ -103,15 +104,23 @@ def build_model():
             ('tfidf', TfidfTransformer())
         ])),
 
-        ('classifier', MultiOutputClassifier(RandomForestClassifier()))
+        # Classifier if using Ada Boost
+        ('classifier', MultiOutputClassifier(AdaBoostClassifier()))
+        
+        # Classifier if using Random Forest
+        #('classifier', MultiOutputClassifier(RandomForestClassifier()))
 
     ])
 
     # Define grid search parameters
     parameters = {
-        'classifier__estimator__n_estimators': [50, 75, 100],
-        'classifier__estimator__criterion': ['gini', 'entropy'],
-        'classifier__estimator__max_depth': [4, 6, 8, None]
+        # Parameters if using Ada Boost
+        'classifier__estimator__n_estimators': [50, 60, 70],
+        'classifier__estimator__learning_rate': [1, 0.1, 0.05]
+        # Parameters if using Random Forest
+        #'classifier__estimator__n_estimators': [50, 75, 100],
+        #'classifier__estimator__criterion': ['gini', 'entropy'],
+        #'classifier__estimator__max_depth': [4, 6, 8, None]
     }
 
     # Assign pipeline and parameters to grid search model for cross validation
