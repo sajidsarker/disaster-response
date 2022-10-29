@@ -85,7 +85,6 @@ The directory structure for this repository is detailed below:
 
 ```
 Model Accuracy: 94.943%
-
 ```
 
 ```
