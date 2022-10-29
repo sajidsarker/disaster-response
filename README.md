@@ -10,7 +10,7 @@
 2. [Files](https://github.com/sajidsarker/disaster-response#2-files)
 3. [Instructions](https://github.com/sajidsarker/disaster-response#3-instructions)
 4. [Documentation](https://github.com/sajidsarker/disaster-response#4-documentation)
-5. []()
+5. [Model Evaluation](https://github.com/sajidsarker/disaster-response#5-model-evaluation)
 
 ## 1. Motivation
 
@@ -80,6 +80,13 @@ The directory structure for this repository is detailed below:
 ## 4. Documentation
 
 [...]
+
+## 5. Model Evaluation
+
+```
+Model Accuracy: 94.943%
+
+```
 
 ```
 Target Variable 0: related
@@ -548,8 +555,4 @@ Class Labels: [0 1]
     accuracy                           0.86      5236
    macro avg       0.79      0.70      0.73      5236
 weighted avg       0.85      0.86      0.85      5236
-```
-
-```
-Model Accuracy: 94.943%
 ```
