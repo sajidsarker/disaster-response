@@ -20,11 +20,16 @@
         <div class="navbar-header">
             <a class="navbar-brand" href="/">Social Media Disaster Response</a>
         </div>
-        <div id="navbar" class="collapse navbar-collapse">
+
+        <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>-->
+
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="nav navbar-nav">
-                <li><a href="https://sajidsarker.github.io/">Blog</a></li>
-                <li><a href="https://github.com/sajidsarker/">Github</a></li>
-                <li><a href="https://sajidsarker.github.io/aboutme">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="https://sajidsarker.github.io/">Blog</a></li>
+                <li class="nav-item"><a class="nav-link" href="https://github.com/sajidsarker/disaster-response/">Github</a></li>
+                <li class="nav-item"><a class="nav-link" href="https://sajidsarker.github.io/aboutme">Contact</a></li>
             </ul>
         </div>
     </div>
@@ -34,7 +39,7 @@
 <div class="jumbotron">
     <div class="container">
         <h1 class="text-center">Social Media Disaster Response</h1>
-        <p class="text-center">Analysing social media message data for disaster response</p>
+        <p class="text-center">Web App analysing social media message data for disaster response.</p>
         <hr />
       
         <div class="row">
@@ -49,16 +54,17 @@
                 </center>
             </div>
         </div>
-
-        {% block message %}
-        {% endblock %}
     </div>
 </div>
 
 <div class="container">
+    {% block message %}
+    {% endblock %}
+
     {% block content %}
+        <hr />
         <div class="page-header">
-            <h1 class="text-center">Overview of Training Dataset</h1>
+            <h1>Overview of Training Dataset</h1>
         </div>
     {% endblock %}
 
@@ -67,9 +73,13 @@
     {% endfor %}
 </div>
 
-<div class="container">
-
-</div>
+<hr />
+<footer class="page-footer font-small">
+    <div class="footer-copyright text-center py-3">Created by
+        <a href="https://www.github.com/sajidsarker/disaster-response/">Sajid Sarker</a>, 2022.
+    </div>
+</footer>
+<hr />
 
 <script type="text/javascript">
     const graphs = {{graphJSON | safe}};

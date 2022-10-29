@@ -3,22 +3,25 @@
 
 {% block message %}
     <hr />
-    <h1 class="text-center">Message</h1>
+    <h1>Message</h>
     <blockquote class="blockquote">
         <p class="mb-0">{{query}}</p>
+        <footer class="blockquote-footer">Social media message classified for disaster response.</footer>
     </blockquote>
 {% endblock %}
 
 {% block content %}
-    <h1 class="text-center">Result</h1>
+    <hr />
+    <h1>Result</h1>
         <ul class="list-group">
             {% for category, classification in classification_result.items() %}
                 {% if classification == 1 %}
-                    <li class="list-group-item list-group-item-success text-center">{{category.replace('_', ' ').title()}}</li>
+                    <li class="list-group-item list-group-item-info d-flex">{{category.replace('_', ' ').title()}}</li>
                 {% else %}
-                    <li class="list-group-item list-group-item-dark text-center">{{category.replace('_', ' ').title()}}</li>
+                    <li class="list-group-item disabled d-flex">{{category.replace('_', ' ').title()}}</li>
                 {% endif %}
             {% endfor %}
+        </ul>
 
         </div>
     </div>
