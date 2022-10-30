@@ -83,6 +83,10 @@ The directory structure for this repository is detailed below:
 
 ## 5. Model Evaluation
 
+The classification model was a *Multiple Output* classifier wrapper for individual *Ada Boost* classifiers trained on the message data using a NLP pipeline. Training occurred additionally through Grid Search Cross Validation over a set of pre-defined tuning parameters to derive the best final model parameters.
+
+Prior to this trained model, a *Random Forest* classifier was used. This yielded model parameters totalling `1.0 GB`. In contrast, *Ada Boost*, which is also an ensemble learning model, yielded similar results with model parameters totalling `2.0 MB`.
+
 ```
 Model Accuracy: 94.943%
 ```
