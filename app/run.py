@@ -39,20 +39,27 @@ model = joblib.load("./models/classifier.pkl")
 @app.route('/')
 @app.route('/index')
 def index():
-    
+
     # extract data needed for visuals
     # TODO: Below is an example - modify to extract data for your own visuals
+    # Bar chart of Genre distribution
     genre_counts = df.groupby('genre').count()['message']
     genre_names = list(genre_counts.index)
+    # Pie chart of Category distribution
+    categories = df.copy()
+    category_counts = categories.sum()
+    #category_counts.drop('id', inplace=True)
+    category_names = categories.columns
     
     # create visuals
     # TODO: Below is an example - modify to create your own visuals
     graphs = [
+        # Bar chart of Genre distribution
         {
             'data': [
                 Bar(
-                    x=genre_names,
-                    y=genre_counts
+                    x = genre_names,
+                    y = genre_counts
                 )
             ],
 
@@ -65,8 +72,44 @@ def index():
                     'title': "Genre"
                 }
             }
+        },
+        # Pie chart of Category distribution
+        {
+            'data': [
+                Bar(
+                    x = category_names,
+                    y = category_counts
+                )
+            ],
+            'layout': {
+                'title': 'Distribution of Message Categories',
+                'yaxis': {
+                    'title': "Count"
+                },
+                'xaxis': {
+                    'title': "Category"
+                }
+            }
         }
     ]
+        #{
+        #    'data': [
+        #        ...(
+        #            x = ,
+        #            y = 
+        #        )
+        #    ],
+        #    'layout': {
+        #        'title': '',
+        #        'yaxis': {
+        #            'title': ""
+        #        },
+        #        'xaxis': {
+        #            'title': ""
+        #        }
+        #    }
+        #},
+
     
     # encode plotly graphs in JSON
     ids = ["graph-{}".format(i) for i, _ in enumerate(graphs)]
