@@ -4,7 +4,7 @@
 
 **License:** MIT License
 
-![screenshot](https://github.com/sajidsarker/disaster-response/app.png)
+![screenshot](https://github.com/sajidsarker/disaster-response/blob/main/app.png)
 
 ## Table of Contents
 
