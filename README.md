@@ -4,6 +4,8 @@
 
 **License:** MIT License
 
+![screenshot](https://github.com/sajidsarker/disaster-response/app.png)
+
 ## Table of Contents
 
 1. [Motivation](https://github.com/sajidsarker/disaster-response#1-motivation)
@@ -23,7 +25,8 @@ The directory structure for this repository is detailed below:
 ```bash
 /
 ├── Documentation/
-│   └── Documentation.html
+│   ├── process_data.html
+│   └── train_classifier.html
 ├── app/
 │   ├── templates/
 │   │   ├── go.html
@@ -79,13 +82,15 @@ The directory structure for this repository is detailed below:
 
 ## 4. Documentation
 
-[...]
+Navigate to `./Documentation` to find formatted documentation for the relevant Python scripts in this project.
 
 ## 5. Model Evaluation
 
 The classification model was a *Multiple Output* classifier wrapper for individual *Ada Boost* classifiers trained on the message data using a NLP pipeline. Training occurred additionally through Grid Search Cross Validation over a set of pre-defined tuning parameters to derive the best final model parameters.
 
-Prior to this trained model, a *Random Forest* classifier was used. This yielded model parameters totalling `1.0 GB`. In contrast, *Ada Boost*, which is also an ensemble learning model, yielded similar results with model parameters totalling `2.0 MB`.
+Prior to this trained model, a *Random Forest* classifier was used. This yielded model parameters totalling `1.0 GB` in file size. In contrast, *Ada Boost*, which is also an ensemble learning model, yielded similar results with model parameters totalling `2.0 MB` in file size.
+
+Model diagnostics are listed below.
 
 ```
 Model Accuracy: 94.943%

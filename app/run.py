@@ -41,19 +41,63 @@ model = joblib.load("./models/classifier.pkl")
 def index():
 
     # extract data needed for visuals
-    # TODO: Below is an example - modify to extract data for your own visuals
+
     # Bar chart of Genre distribution
     genre_counts = df.groupby('genre').count()['message']
     genre_names = list(genre_counts.index)
-    # Pie chart of Category distribution
-    categories = df.copy()
+
+    # Bar chart of Category distribution
+    categories = df.copy().iloc[:, 4:] != 0
     category_counts = categories.sum()
-    #category_counts.drop('id', inplace=True)
     category_names = categories.columns
-    
+
+    # Bar chart of Top Represented Categories
+    top_category_counts = categories.sum().sort_values(ascending=False)[1:11]
+    top_category_names = list(top_category_counts.index)
+
     # create visuals
-    # TODO: Below is an example - modify to create your own visuals
+
     graphs = [
+        # Bar chart of Category distribution
+        {
+            'data': [
+                Bar(
+                    x = category_names,
+                    y = category_counts
+                )
+            ],
+
+            'layout': {
+                'title': 'Distribution of Message Categories',
+                'yaxis': {
+                    'title': "Count"
+                },
+                'xaxis': {
+                    'title': "Category"
+                }
+            }
+        },
+
+        # Bar chart of Top Represented Categories
+        {
+            'data': [
+                Bar(
+                    x = top_category_names,
+                    y = top_category_counts
+                )
+            ],
+
+            'layout': {
+                'title': 'Distribution of Message Categories',
+                'yaxis': {
+                    'title': "Count"
+                },
+                'xaxis': {
+                    'title': "Category"
+                }
+            }
+        },
+
         # Bar chart of Genre distribution
         {
             'data': [
@@ -72,49 +116,14 @@ def index():
                     'title': "Genre"
                 }
             }
-        },
-        # Pie chart of Category distribution
-        {
-            'data': [
-                Bar(
-                    x = category_names,
-                    y = category_counts
-                )
-            ],
-            'layout': {
-                'title': 'Distribution of Message Categories',
-                'yaxis': {
-                    'title': "Count"
-                },
-                'xaxis': {
-                    'title': "Category"
-                }
-            }
         }
     ]
-        #{
-        #    'data': [
-        #        ...(
-        #            x = ,
-        #            y = 
-        #        )
-        #    ],
-        #    'layout': {
-        #        'title': '',
-        #        'yaxis': {
-        #            'title': ""
-        #        },
-        #        'xaxis': {
-        #            'title': ""
-        #        }
-        #    }
-        #},
 
-    
+
     # encode plotly graphs in JSON
     ids = ["graph-{}".format(i) for i, _ in enumerate(graphs)]
     graphJSON = json.dumps(graphs, cls=plotly.utils.PlotlyJSONEncoder)
-    
+
     # render web page with plotly graphs
     return render_template('master.html', ids=ids, graphJSON=graphJSON)
 
