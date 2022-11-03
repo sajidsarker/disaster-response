@@ -10,7 +10,6 @@ from sqlalchemy import create_engine
 import nltk
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
-from nltk.stem.porter import PorterStemmer
 from nltk.stem.wordnet import WordNetLemmatizer
 
 nltk.download('punkt')
@@ -76,12 +75,12 @@ def tokenize(text):
     tokens = [token for token in tokens if token not in stopwords.words('english')]
 
     # Stemming
-    stemmer = PorterStemmer()
-    stemmed_tokens = [stemmer.stem(token) for token in tokens]
+    #stemmer = PorterStemmer()
+    #stemmed_tokens = [stemmer.stem(token) for token in tokens]
 
     # Lemmatisation
     lemmatiser = WordNetLemmatizer()
-    lemmed_tokens = [lemmatiser.lemmatize(token) for token in stemmed_tokens]
+    lemmed_tokens = [lemmatiser.lemmatize(token) for token in tokens]
     lemmed_tokens = [lemmatiser.lemmatize(token, pos='v') for token in lemmed_tokens]
 
     clean_tokens = lemmed_tokens

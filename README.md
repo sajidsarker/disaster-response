@@ -97,21 +97,20 @@ Prior to this trained model, a *Random Forest* classifier was used. This yielded
 Model diagnostics are listed below.
 
 ```
-Model Accuracy: 94.943%
+Model Accuracy: 94.846%
 ```
 
 ```
 Target Variable 0: related
-Class Labels: [0 1 2]
+Class Labels: [0 1]
               precision    recall  f1-score   support
 
-           0       0.64      0.10      0.17      1193
-           1       0.78      0.98      0.87      4003
-           2       0.82      0.23      0.35        40
+           0       0.68      0.26      0.37      1253
+           1       0.80      0.96      0.88      3983
 
-    accuracy                           0.78      5236
-   macro avg       0.75      0.44      0.46      5236
-weighted avg       0.75      0.78      0.71      5236
+    accuracy                           0.79      5236
+   macro avg       0.74      0.61      0.62      5236
+weighted avg       0.77      0.79      0.76      5236
 ```
 
 ```
@@ -119,12 +118,12 @@ Target Variable 1: request
 Class Labels: [0 1]
               precision    recall  f1-score   support
 
-           0       0.92      0.96      0.94      4403
-           1       0.71      0.54      0.62       833
+           0       0.91      0.96      0.94      4358
+           1       0.73      0.53      0.62       878
 
     accuracy                           0.89      5236
-   macro avg       0.81      0.75      0.78      5236
-weighted avg       0.88      0.89      0.89      5236
+   macro avg       0.82      0.75      0.78      5236
+weighted avg       0.88      0.89      0.88      5236
 ```
 
 ```
@@ -132,12 +131,12 @@ Target Variable 2: offer
 Class Labels: [0 1]
               precision    recall  f1-score   support
 
-           0       1.00      1.00      1.00      5212
-           1       0.10      0.04      0.06        24
+           0       1.00      1.00      1.00      5222
+           1       0.00      0.00      0.00        14
 
-    accuracy                           0.99      5236
-   macro avg       0.55      0.52      0.53      5236
-weighted avg       0.99      0.99      0.99      5236
+    accuracy                           1.00      5236
+   macro avg       0.50      0.50      0.50      5236
+weighted avg       0.99      1.00      0.99      5236
 ```
 
 ```
@@ -145,11 +144,11 @@ Target Variable 3: aid_related
 Class Labels: [0 1]
               precision    recall  f1-score   support
 
-           0       0.77      0.86      0.81      3139
-           1       0.75      0.61      0.67      2097
+           0       0.77      0.86      0.81      3104
+           1       0.75      0.62      0.68      2132
 
     accuracy                           0.76      5236
-   macro avg       0.76      0.74      0.74      5236
+   macro avg       0.76      0.74      0.75      5236
 weighted avg       0.76      0.76      0.76      5236
 ```
 
@@ -158,12 +157,12 @@ Target Variable 4: medical_help
 Class Labels: [0 1]
               precision    recall  f1-score   support
 
-           0       0.95      0.98      0.96      4854
-           1       0.58      0.32      0.41       382
+           0       0.93      0.98      0.96      4788
+           1       0.58      0.26      0.36       448
 
-    accuracy                           0.93      5236
-   macro avg       0.76      0.65      0.69      5236
-weighted avg       0.92      0.93      0.92      5236
+    accuracy                           0.92      5236
+   macro avg       0.76      0.62      0.66      5236
+weighted avg       0.90      0.92      0.91      5236
 ```
 
 ```
@@ -171,11 +170,11 @@ Target Variable 5: medical_products
 Class Labels: [0 1]
               precision    recall  f1-score   support
 
-           0       0.97      0.99      0.98      4973
-           1       0.65      0.38      0.48       263
+           0       0.96      0.99      0.98      4956
+           1       0.67      0.33      0.44       280
 
     accuracy                           0.96      5236
-   macro avg       0.81      0.69      0.73      5236
+   macro avg       0.82      0.66      0.71      5236
 weighted avg       0.95      0.96      0.95      5236
 ```
 
@@ -184,12 +183,12 @@ Target Variable 6: search_and_rescue
 Class Labels: [0 1]
               precision    recall  f1-score   support
 
-           0       0.98      1.00      0.99      5118
-           1       0.62      0.21      0.32       118
+           0       0.98      1.00      0.99      5099
+           1       0.54      0.15      0.24       137
 
-    accuracy                           0.98      5236
-   macro avg       0.80      0.60      0.65      5236
-weighted avg       0.97      0.98      0.97      5236
+    accuracy                           0.97      5236
+   macro avg       0.76      0.57      0.61      5236
+weighted avg       0.97      0.97      0.97      5236
 ```
 
 ```
@@ -197,12 +196,12 @@ Target Variable 7: security
 Class Labels: [0 1]
               precision    recall  f1-score   support
 
-           0       0.98      1.00      0.99      5150
-           1       0.40      0.07      0.12        86
+           0       0.98      1.00      0.99      5151
+           1       0.36      0.06      0.10        85
 
     accuracy                           0.98      5236
-   macro avg       0.69      0.53      0.56      5236
-weighted avg       0.98      0.98      0.98      5236
+   macro avg       0.67      0.53      0.55      5236
+weighted avg       0.97      0.98      0.98      5236
 ```
 
 ```
@@ -211,10 +210,10 @@ Class Labels: [0 1]
               precision    recall  f1-score   support
 
            0       0.98      0.99      0.99      5071
-           1       0.59      0.40      0.48       165
+           1       0.58      0.39      0.47       165
 
     accuracy                           0.97      5236
-   macro avg       0.78      0.70      0.73      5236
+   macro avg       0.78      0.69      0.73      5236
 weighted avg       0.97      0.97      0.97      5236
 ```
 
@@ -235,12 +234,12 @@ Target Variable 10: water
 Class Labels: [0 1]
               precision    recall  f1-score   support
 
-           0       0.98      0.98      0.98      4903
-           1       0.74      0.72      0.73       333
+           0       0.97      0.98      0.98      4896
+           1       0.74      0.62      0.68       340
 
-    accuracy                           0.97      5236
-   macro avg       0.86      0.85      0.86      5236
-weighted avg       0.97      0.97      0.97      5236
+    accuracy                           0.96      5236
+   macro avg       0.86      0.80      0.83      5236
+weighted avg       0.96      0.96      0.96      5236
 ```
 
 ```
@@ -248,12 +247,12 @@ Target Variable 11: food
 Class Labels: [0 1]
               precision    recall  f1-score   support
 
-           0       0.96      0.98      0.97      4666
-           1       0.79      0.68      0.74       570
+           0       0.96      0.98      0.97      4655
+           1       0.81      0.69      0.75       581
 
     accuracy                           0.95      5236
-   macro avg       0.88      0.83      0.85      5236
-weighted avg       0.94      0.95      0.94      5236
+   macro avg       0.89      0.83      0.86      5236
+weighted avg       0.95      0.95      0.95      5236
 ```
 
 ```
@@ -261,12 +260,12 @@ Target Variable 12: shelter
 Class Labels: [0 1]
               precision    recall  f1-score   support
 
-           0       0.96      0.98      0.97      4801
-           1       0.75      0.58      0.66       435
+           0       0.96      0.98      0.97      4771
+           1       0.77      0.53      0.63       465
 
-    accuracy                           0.95      5236
-   macro avg       0.86      0.78      0.81      5236
-weighted avg       0.95      0.95      0.95      5236
+    accuracy                           0.94      5236
+   macro avg       0.86      0.76      0.80      5236
+weighted avg       0.94      0.94      0.94      5236
 ```
 
 ```
@@ -274,12 +273,12 @@ Target Variable 13: clothing
 Class Labels: [0 1]
               precision    recall  f1-score   support
 
-           0       0.99      1.00      0.99      5160
-           1       0.57      0.38      0.46        76
+           0       0.99      1.00      0.99      5157
+           1       0.76      0.47      0.58        79
 
     accuracy                           0.99      5236
-   macro avg       0.78      0.69      0.73      5236
-weighted avg       0.98      0.99      0.99      5236
+   macro avg       0.87      0.73      0.79      5236
+weighted avg       0.99      0.99      0.99      5236
 ```
 
 ```
@@ -287,12 +286,12 @@ Target Variable 14: money
 Class Labels: [0 1]
               precision    recall  f1-score   support
 
-           0       0.98      0.99      0.99      5104
-           1       0.53      0.30      0.38       132
+           0       0.98      1.00      0.99      5118
+           1       0.59      0.31      0.40       118
 
     accuracy                           0.98      5236
-   macro avg       0.76      0.64      0.68      5236
-weighted avg       0.97      0.98      0.97      5236
+   macro avg       0.79      0.65      0.70      5236
+weighted avg       0.98      0.98      0.98      5236
 ```
 
 ```
@@ -300,12 +299,12 @@ Target Variable 15: missing_people
 Class Labels: [0 1]
               precision    recall  f1-score   support
 
-           0       0.99      1.00      1.00      5189
-           1       0.62      0.11      0.18        47
+           0       0.99      1.00      0.99      5173
+           1       0.18      0.03      0.05        63
 
     accuracy                           0.99      5236
-   macro avg       0.81      0.55      0.59      5236
-weighted avg       0.99      0.99      0.99      5236
+   macro avg       0.59      0.52      0.52      5236
+weighted avg       0.98      0.99      0.98      5236
 ```
 
 ```
@@ -313,12 +312,12 @@ Target Variable 16: refugees
 Class Labels: [0 1]
               precision    recall  f1-score   support
 
-           0       0.98      0.99      0.98      5071
-           1       0.56      0.27      0.37       165
+           0       0.97      0.99      0.98      5046
+           1       0.62      0.25      0.35       190
 
     accuracy                           0.97      5236
-   macro avg       0.77      0.63      0.68      5236
-weighted avg       0.96      0.97      0.97      5236
+   macro avg       0.80      0.62      0.67      5236
+weighted avg       0.96      0.97      0.96      5236
 ```
 
 ```
@@ -326,12 +325,12 @@ Target Variable 17: death
 Class Labels: [0 1]
               precision    recall  f1-score   support
 
-           0       0.98      0.99      0.99      5000
-           1       0.75      0.53      0.63       236
+           0       0.97      0.99      0.98      4997
+           1       0.71      0.44      0.55       239
 
     accuracy                           0.97      5236
-   macro avg       0.87      0.76      0.81      5236
-weighted avg       0.97      0.97      0.97      5236
+   macro avg       0.84      0.72      0.76      5236
+weighted avg       0.96      0.97      0.96      5236
 ```
 
 ```
@@ -339,12 +338,12 @@ Target Variable 18: other_aid
 Class Labels: [0 1]
               precision    recall  f1-score   support
 
-           0       0.90      0.98      0.93      4604
-           1       0.50      0.18      0.26       632
+           0       0.89      0.98      0.93      4576
+           1       0.51      0.15      0.23       660
 
-    accuracy                           0.88      5236
-   macro avg       0.70      0.58      0.60      5236
-weighted avg       0.85      0.88      0.85      5236
+    accuracy                           0.87      5236
+   macro avg       0.70      0.56      0.58      5236
+weighted avg       0.84      0.87      0.84      5236
 ```
 
 ```
@@ -352,12 +351,12 @@ Target Variable 19: infrastructure_related
 Class Labels: [0 1]
               precision    recall  f1-score   support
 
-           0       0.95      0.99      0.97      4918
-           1       0.38      0.11      0.17       318
+           0       0.95      0.99      0.97      4927
+           1       0.39      0.12      0.19       309
 
-    accuracy                           0.93      5236
-   macro avg       0.66      0.55      0.57      5236
-weighted avg       0.91      0.93      0.92      5236
+    accuracy                           0.94      5236
+   macro avg       0.67      0.56      0.58      5236
+weighted avg       0.91      0.94      0.92      5236
 ```
 
 ```
@@ -365,12 +364,12 @@ Target Variable 20: transport
 Class Labels: [0 1]
               precision    recall  f1-score   support
 
-           0       0.97      0.99      0.98      5031
-           1       0.59      0.23      0.33       205
+           0       0.96      1.00      0.98      5001
+           1       0.71      0.22      0.33       235
 
     accuracy                           0.96      5236
-   macro avg       0.78      0.61      0.66      5236
-weighted avg       0.95      0.96      0.96      5236
+   macro avg       0.84      0.61      0.66      5236
+weighted avg       0.95      0.96      0.95      5236
 ```
 
 ```
@@ -378,12 +377,12 @@ Target Variable 21: buildings
 Class Labels: [0 1]
               precision    recall  f1-score   support
 
-           0       0.97      0.99      0.98      4960
-           1       0.65      0.41      0.51       276
+           0       0.97      0.99      0.98      4974
+           1       0.68      0.39      0.50       262
 
     accuracy                           0.96      5236
-   macro avg       0.81      0.70      0.74      5236
-weighted avg       0.95      0.96      0.95      5236
+   macro avg       0.82      0.69      0.74      5236
+weighted avg       0.95      0.96      0.96      5236
 ```
 
 ```
@@ -391,11 +390,11 @@ Target Variable 22: electricity
 Class Labels: [0 1]
               precision    recall  f1-score   support
 
-           0       0.99      1.00      0.99      5128
-           1       0.57      0.30      0.39       108
+           0       0.99      1.00      0.99      5136
+           1       0.54      0.25      0.34       100
 
     accuracy                           0.98      5236
-   macro avg       0.78      0.65      0.69      5236
+   macro avg       0.76      0.62      0.67      5236
 weighted avg       0.98      0.98      0.98      5236
 ```
 
@@ -405,10 +404,10 @@ Class Labels: [0 1]
               precision    recall  f1-score   support
 
            0       0.99      1.00      1.00      5205
-           1       0.00      0.00      0.00        31
+           1       0.33      0.03      0.06        31
 
     accuracy                           0.99      5236
-   macro avg       0.50      0.50      0.50      5236
+   macro avg       0.66      0.52      0.53      5236
 weighted avg       0.99      0.99      0.99      5236
 ```
 
@@ -417,12 +416,12 @@ Target Variable 24: hospitals
 Class Labels: [0 1]
               precision    recall  f1-score   support
 
-           0       0.99      1.00      0.99      5180
-           1       0.40      0.14      0.21        56
+           0       0.99      1.00      0.99      5177
+           1       0.23      0.10      0.14        59
 
     accuracy                           0.99      5236
-   macro avg       0.70      0.57      0.60      5236
-weighted avg       0.98      0.99      0.99      5236
+   macro avg       0.61      0.55      0.57      5236
+weighted avg       0.98      0.99      0.98      5236
 ```
 
 ```
@@ -430,12 +429,12 @@ Target Variable 25: shops
 Class Labels: [0 1]
               precision    recall  f1-score   support
 
-           0       1.00      1.00      1.00      5214
-           1       0.00      0.00      0.00        22
+           0       1.00      1.00      1.00      5221
+           1       0.40      0.13      0.20        15
 
     accuracy                           1.00      5236
-   macro avg       0.50      0.50      0.50      5236
-weighted avg       0.99      1.00      0.99      5236
+   macro avg       0.70      0.57      0.60      5236
+weighted avg       1.00      1.00      1.00      5236
 ```
 
 ```
@@ -443,12 +442,12 @@ Target Variable 26: aid_centers
 Class Labels: [0 1]
               precision    recall  f1-score   support
 
-           0       0.99      1.00      0.99      5185
-           1       0.14      0.08      0.10        51
+           0       0.99      1.00      0.99      5187
+           1       0.35      0.16      0.22        49
 
     accuracy                           0.99      5236
-   macro avg       0.57      0.54      0.55      5236
-weighted avg       0.98      0.99      0.98      5236
+   macro avg       0.67      0.58      0.61      5236
+weighted avg       0.99      0.99      0.99      5236
 ```
 
 ```
@@ -457,10 +456,10 @@ Class Labels: [0 1]
               precision    recall  f1-score   support
 
            0       0.96      0.99      0.98      5019
-           1       0.27      0.10      0.14       217
+           1       0.31      0.09      0.14       217
 
     accuracy                           0.95      5236
-   macro avg       0.62      0.54      0.56      5236
+   macro avg       0.64      0.54      0.56      5236
 weighted avg       0.93      0.95      0.94      5236
 ```
 
@@ -469,11 +468,11 @@ Target Variable 28: weather_related
 Class Labels: [0 1]
               precision    recall  f1-score   support
 
-           0       0.89      0.95      0.92      3823
-           1       0.85      0.69      0.76      1413
+           0       0.89      0.95      0.92      3799
+           1       0.85      0.70      0.77      1437
 
     accuracy                           0.88      5236
-   macro avg       0.87      0.82      0.84      5236
+   macro avg       0.87      0.83      0.85      5236
 weighted avg       0.88      0.88      0.88      5236
 ```
 
@@ -482,12 +481,12 @@ Target Variable 29: floods
 Class Labels: [0 1]
               precision    recall  f1-score   support
 
-           0       0.97      0.99      0.98      4835
-           1       0.85      0.59      0.70       401
+           0       0.96      0.99      0.98      4814
+           1       0.84      0.55      0.66       422
 
     accuracy                           0.96      5236
-   macro avg       0.91      0.79      0.84      5236
-weighted avg       0.96      0.96      0.96      5236
+   macro avg       0.90      0.77      0.82      5236
+weighted avg       0.95      0.96      0.95      5236
 ```
 
 ```
@@ -495,12 +494,12 @@ Target Variable 30: storm
 Class Labels: [0 1]
               precision    recall  f1-score   support
 
-           0       0.95      0.98      0.97      4757
-           1       0.76      0.52      0.61       479
+           0       0.95      0.98      0.97      4750
+           1       0.75      0.52      0.61       486
 
     accuracy                           0.94      5236
-   macro avg       0.86      0.75      0.79      5236
-weighted avg       0.94      0.94      0.94      5236
+   macro avg       0.85      0.75      0.79      5236
+weighted avg       0.93      0.94      0.93      5236
 ```
 
 ```
@@ -508,11 +507,11 @@ Target Variable 31: fire
 Class Labels: [0 1]
               precision    recall  f1-score   support
 
-           0       0.99      1.00      1.00      5187
-           1       0.68      0.27      0.38        49
+           0       0.99      1.00      1.00      5183
+           1       0.67      0.26      0.38        53
 
     accuracy                           0.99      5236
-   macro avg       0.84      0.63      0.69      5236
+   macro avg       0.83      0.63      0.69      5236
 weighted avg       0.99      0.99      0.99      5236
 ```
 
@@ -521,11 +520,11 @@ Target Variable 32: earthquake
 Class Labels: [0 1]
               precision    recall  f1-score   support
 
-           0       0.98      0.99      0.98      4757
-           1       0.87      0.81      0.84       479
+           0       0.98      0.99      0.98      4749
+           1       0.89      0.78      0.83       487
 
     accuracy                           0.97      5236
-   macro avg       0.93      0.90      0.91      5236
+   macro avg       0.93      0.88      0.91      5236
 weighted avg       0.97      0.97      0.97      5236
 ```
 
@@ -534,11 +533,11 @@ Target Variable 33: cold
 Class Labels: [0 1]
               precision    recall  f1-score   support
 
-           0       0.99      0.99      0.99      5149
-           1       0.53      0.38      0.44        87
+           0       0.99      1.00      0.99      5140
+           1       0.53      0.24      0.33        96
 
     accuracy                           0.98      5236
-   macro avg       0.76      0.69      0.72      5236
+   macro avg       0.76      0.62      0.66      5236
 weighted avg       0.98      0.98      0.98      5236
 ```
 
@@ -547,13 +546,12 @@ Target Variable 34: other_weather
 Class Labels: [0 1]
               precision    recall  f1-score   support
 
-           0       0.95      0.99      0.97      4954
-           1       0.47      0.15      0.23       282
+           0       0.95      0.99      0.97      4951
+           1       0.54      0.18      0.27       285
 
     accuracy                           0.95      5236
-   macro avg       0.71      0.57      0.60      5236
+   macro avg       0.75      0.59      0.62      5236
 weighted avg       0.93      0.95      0.93      5236
-
 ```
 
 ```
@@ -561,10 +559,10 @@ Target Variable 35: direct_report
 Class Labels: [0 1]
               precision    recall  f1-score   support
 
-           0       0.88      0.96      0.92      4260
-           1       0.70      0.44      0.54       976
+           0       0.87      0.96      0.91      4246
+           1       0.68      0.41      0.51       990
 
-    accuracy                           0.86      5236
-   macro avg       0.79      0.70      0.73      5236
-weighted avg       0.85      0.86      0.85      5236
+    accuracy                           0.85      5236
+   macro avg       0.78      0.68      0.71      5236
+weighted avg       0.84      0.85      0.84      5236
 ```

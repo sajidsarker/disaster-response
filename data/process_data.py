@@ -39,19 +39,22 @@ def clean_data(df):
         categories[column] = categories[column].str[-1]
         categories[column] = categories[column].astype(int)
 
+    # Transform multiclass categorical variables to binary categorical dummy
+    categories['related'].replace(2, 1, inplace=True)
+
     # Copy row identifiers
     categories['id'] = df['id'].copy()
     
     # Drop pre-cleaned categories column 
     df.drop('categories', inplace=True, axis=1)
-    
+
     # Merge new categorical dummy variables to create full dataset
     df = df.merge(categories, on='id')
 
     # Remove duplicates
     duplicates = df.duplicated(subset=['id', 'message'], keep='first')
     df = df[duplicates == False]
-    
+
     return df
 
 
@@ -64,7 +67,7 @@ def save_data(df, database_filename):
         None
     '''
     engine = create_engine('sqlite:///{}'.format(database_filename))
-    df.to_sql('Messages', engine, index=False)
+    df.to_sql('Messages', engine, index=False, if_exists='replace')
     
     return None
 
