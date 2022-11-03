@@ -41,7 +41,7 @@ The directory structure for this repository is detailed below:
 ├── data/
 │   ├── process_data.py
 │   ├── categories.csv
-│   ├── process_data.py
+│   ├── messages.py
 │   └── DisasterResponse.db
 ├── model/
 │   ├── train_classifier.py
