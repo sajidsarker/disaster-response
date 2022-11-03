@@ -18,9 +18,11 @@
 
 ## 1. Motivation
 
-The motivation for this particular project is to construct a web-based application and API that is able to classify social media messages into critical disaster response related categories.
+The motivation for this particular project is to construct a web-based application and API that is able to classify social media messages into critical disaster response-related categories. There are 36 predefined categories of natural disasters and disaster response-related categories under which social media messages may be filed including earthquakes, floods, shelter, food, medical aid, search & rescue et cetera.
 
-The web app uses an ETL pipeline that processes social media disaster related messages from **Figure Eight** and subsequently uses the cleaned dataset in a NLP pipeline for a multi-class classification model.
+By classifying these messages, we can determine specific users, locations, and aid resources critically required for disaster relief efforts and forwarding the contents of these messages to the appropriate disaster relief agencies or governmental authorities for disaster response. The utilisation of machine learning and natural language processing ensures faster alert and detection through social media for disasters and identifying where, for whom, and what sort of relief response is essential and effective.
+
+The web-based application and API uses an ETL pipeline that processes social media disaster related messages from **Figure Eight** and subsequently uses the cleaned dataset in a NLP pipeline for a multi-class classification model.
 
 ## 2. Files
 
