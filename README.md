@@ -20,7 +20,9 @@
 
 The motivation for this particular project is to construct a web-based application and API that is able to classify social media messages into critical disaster response-related categories. There are 36 predefined natural disasters and disaster response-related categories under which social media messages may be filed including earthquakes, floods, shelter, food, medical aid, search & rescue et cetera.
 
-By classifying these messages, we can determine specific users, locations, and aid resources critically required for disaster relief efforts and forwarding the contents of these messages to the appropriate disaster relief agencies or governmental authorities for disaster response. The utilisation of machine learning and natural language processing ensures faster alert and detection through social media for disasters and identifying where, for whom, and what sort of relief response is essential and effective.
+By classifying these messages, we can determine critical information on specific locations, users, and aid resources required for disaster relief efforts and forward the contents of these identified messages to the appropriate disaster relief agencies or governmental authorities for disaster response.
+
+The utilisation of machine learning and natural language processing ensures faster alert and detection of social media content for disasters and identifying where, for whom, and what sort of relief response will be  essential and effective in those circumstances.
 
 The web-based application and API uses an ETL pipeline that processes social media disaster related messages from **Figure Eight** and subsequently uses the cleaned dataset in a NLP pipeline for a multi-class classification model.
 
